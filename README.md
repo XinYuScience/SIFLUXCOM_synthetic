@@ -44,8 +44,7 @@ conda list
 ## 📂 Repository Structure
 ```
 SIFLUXCOM_synthetic/
-├── data/                     # Input datasets (not tracked by git)
-├── outputs/                  # Experiment results and logs (not tracked by git)
+├── data.tar.gz               # Input datasets
 ├── dataset_prep.ipynb        # Notebook: dataset preparation
 ├── default_forward_*.ipynb   # Default forward simulations
 ├── default_training_*.ipynb  # Default training runs
@@ -57,20 +56,14 @@ SIFLUXCOM_synthetic/
 ├── environment.yml           # Conda environment specification
 └── README.md                 # Project documentation
 ```
+## Workflow of the project
+```
+1) create synthetic dataset for different extrapolation cases based on the dataset era5_ssrd_vpd_2001-2020.zarr
+2) default: train neural networks directly for the target
+3) transfer learning: pre training on the proxy; fine tuning on the target
+4) evaluate the results
+5) bonus: i.think of other approaches ii. think of PFT replacements
 
----
-
-## ⚠️ Notes
-- Large data files (`data/`, `outputs/`) are not stored in this repository.  
-- Please prepare your own `data/` directory or request access if applicable.  
-- Some notebooks assume you are running on an HPC with **SLURM** job scheduling.
-
----
-
-## ✨ Citation
-If you use this repository in your research, please cite appropriately (add your reference here).  
-
----
-
-👩‍💻 Maintainer: **XinYuScience**  
-📬 Contributions, issues, and suggestions are welcome!
+Notes:
+You could work with .ipynb to interactively run the script or submit jobs using submit_job.sh
+```
