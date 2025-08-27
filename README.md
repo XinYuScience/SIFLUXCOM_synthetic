@@ -1,14 +1,14 @@
 # 🌍 SIFLUXCOM Synthetic Project
 
-This repository contains code, Jupyter notebooks, and environment setup for running experiments on meteorological and Plant Functional Type (PFT) data.  
+-Workflow of the project
+1) create synthetic dataset for different extrapolation cases based on the dataset era5_ssrd_vpd_2001-2020.zarr
+2) default: train neural networks directly for the target
+3) transfer learning: pre training on the proxy; fine tuning on the target
+4) evaluate the results
+5) bonus: i.think of other approaches ii. think of PFT replacements
 
-It includes workflows for:
-- ✅ Dataset preparation  
-- ✅ Pre-training and fine-tuning models  
-- ✅ Forward simulations with meteorological & PFT data  
-- ✅ HPC job submission scripts  
-
----
+Notes:
+You could work with .ipynb to interactively run the script or submit jobs using submit_job.sh
 
 ## 🚀 Getting Started
 
@@ -47,6 +47,7 @@ SIFLUXCOM_synthetic/
 ├── data.tar.gz               # Input datasets
 ├── dataset_prep.ipynb        # Notebook: dataset preparation
 ├── default_forward_*.ipynb   # Default forward simulations
+├── default_training_*.py     # example .py file
 ├── default_training_*.ipynb  # Default training runs
 ├── fine_tuning_*.ipynb       # Fine-tuning experiments
 ├── pre_training_*.ipynb      # Pre-training experiments
@@ -55,15 +56,4 @@ SIFLUXCOM_synthetic/
 ├── submit_job.sh             # HPC SLURM job submission script
 ├── environment.yml           # Conda environment specification
 └── README.md                 # Project documentation
-```
-## Workflow of the project
-```
-1) create synthetic dataset for different extrapolation cases based on the dataset era5_ssrd_vpd_2001-2020.zarr
-2) default: train neural networks directly for the target
-3) transfer learning: pre training on the proxy; fine tuning on the target
-4) evaluate the results
-5) bonus: i.think of other approaches ii. think of PFT replacements
-
-Notes:
-You could work with .ipynb to interactively run the script or submit jobs using submit_job.sh
 ```
