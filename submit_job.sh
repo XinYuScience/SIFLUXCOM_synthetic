@@ -28,6 +28,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=xyu@bgc-jena.mpg.de
 #SBATCH --time=12:00:00
+#SBATCH --reservation=workshop
 
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
@@ -47,4 +48,5 @@ srun python3 ./default_training_meteo_ex.py
 end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 echo "Elapsed time: $(($elapsed_time / 3600))h $((($elapsed_time / 60) % 60))m $(($elapsed_time % 60))s"
+
 exit
